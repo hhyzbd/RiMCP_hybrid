@@ -473,13 +473,13 @@ ENV/
 **/*.onnx
 
 # Generated indexes and data files
-index/vec/
-index/graph.csc.bin
-index/graph.csr.bin
-index/meta/
-index/lucene/
-index/graph.meta.json
-index/graph.nodes.tsv
+**/index/vec/
+**/index/graph.csc.bin
+**/index/graph.csr.bin
+**/index/meta/
+**/index/lucene/
+**/index/graph.meta.json
+**/index/graph.nodes.tsv
 
 # RimWorld specific - EXCLUDE ALL COPYRIGHTED MATERIAL
 RimWorldData/
