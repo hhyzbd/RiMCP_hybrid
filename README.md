@@ -111,7 +111,8 @@ dotnet run -- get-item --symbol "xml:Door"
 cd RiMCP_hybrid/
 
 # 放置 RimWorld 数据（必需）
-# 从你的 RimWorld 安装目录复制：RimWorldXXXX_Data/StreamingAssets/Data/*
+# 从你的 RimWorld 安装目录复制Def数据：C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data
+# C#源码：通过ILSpy或者dnspy导出
 # 放置到：RimWorldData/（与此 README 同级）
 # 如果我在仓库里直接上传边缘世界源码，泰南会告死我，懂吗
 
