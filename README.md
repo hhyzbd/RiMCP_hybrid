@@ -101,7 +101,7 @@ dotnet run -- get-item --symbol "xml:Door"
 
 - **.NET 8.0 SDK**（从 [microsoft.com/net](https://dotnet.microsoft.com/download) 下载）
 - **Python 3.9+**（从 [python.org](https://python.org) 下载）
-- **RimWorld 游戏文件**（复制 `RimWorldXXXX_Data/StreamingAssets/Data` 到项目根目录为 `RimWorldData/`）
+- **RimWorld 游戏文件** 从你的 RimWorld 安装目录复制 Def 数据：C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data；C#源码：通过 ILSpy 或者 dnspy 导出，存进项目根目录/Rimw=WorldData
 - **跨平台支持**：Windows (PowerShell)、Linux/macOS (Shell 脚本)
 
 ### 1. 设置项目结构
