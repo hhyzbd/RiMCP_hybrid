@@ -134,7 +134,7 @@ internal sealed class LuceneWriter : IDisposable
     {
         var duplicates = _duplicateTracker.Where(kvp => kvp.Value.Count > 1).ToList();
         
-        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"[LuceneWriter] Processed {_duplicateTracker.Count} SymbolIds, found {duplicates.Count} duplicates");
         Console.ResetColor();
         
@@ -158,7 +158,6 @@ internal sealed class LuceneWriter : IDisposable
         Console.ResetColor();
 
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"[LuceneWriter] Found {duplicates.Count} SymbolIds with multiple occurrences");
         Console.ResetColor();
 
         foreach (var duplicate in duplicates.OrderBy(kvp => kvp.Key))
@@ -210,10 +209,10 @@ internal sealed class LuceneWriter : IDisposable
         writer.WriteLine("Only: last occurrence of each duplicate SymbolId will be searchable.");
         Console.ResetColor();
         
-        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"[LuceneWriter] Duplicate report written to: {_duplicateLogPath}");
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"[LuceneWriter] Found {duplicates.Count} SymbolIds with multiple occurrences");
+        Console.WriteLine($"[LuceneWriter] Processed {_duplicateTracker.Count} SymbolIds, found and resolved {duplicates.Count} duplicates");
         Console.ResetColor();
     }
 

@@ -47,7 +47,7 @@ internal sealed class IndexingPipeline
             return;
         }
 
-        Console.WriteLine($"[index] Capturing full snapshot …");
+        Console.WriteLine("[index] Capturing full snapshot...");
         var fullChunks = chunker.BuildFullSnapshot();
 
         if (_config.ForceFullRebuild)
@@ -66,7 +66,7 @@ internal sealed class IndexingPipeline
         }
 
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine($"[index] Writing {fullChunks.Count} chunks to Lucene index …");
+        Console.WriteLine($"[index] Writing {fullChunks.Count} chunks to Lucene index...");
         using (var lucene = new LuceneWriter(_config.LuceneIndexPath))
         {
             lucene.Reset();
@@ -75,9 +75,6 @@ internal sealed class IndexingPipeline
         }
         Console.ResetColor();
 
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("[index] Rebuilding vector store …");
-        Console.ResetColor();
         IEmbeddingGenerator embeddingGenerator;
         
         // Prefer embedding server if configured
@@ -125,11 +122,11 @@ internal sealed class IndexingPipeline
 
         var vectorWriter = new VectorWriter(_config.VectorIndexPath, embeddingGenerator);
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("[index] Rebuilding vector store …");
+        Console.WriteLine("[index] Rebuilding vector store...");
         Console.ResetColor();
         await vectorWriter.WriteAsync(fullChunks, cancellationToken);
 
-        Console.WriteLine("[index] Building graph snapshot …");
+        Console.WriteLine("[index] Building graph snapshot...");
         var graphBuilder = new GraphBuilder(_config.GraphPath, _config.MaxDegreeOfParallelism);
         graphBuilder.BuildGraph(fullChunks);
 
