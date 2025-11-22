@@ -80,7 +80,7 @@ internal sealed class IndexingPipeline
         // Prefer embedding server if configured
         if (!string.IsNullOrWhiteSpace(_config.EmbeddingServerUrl))
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"[index] Using embedding server at {_config.EmbeddingServerUrl}");
             Console.ResetColor();
             embeddingGenerator = new ServerBatchEmbeddingGenerator(_config.EmbeddingServerUrl, _config.PythonBatchSize);
